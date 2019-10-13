@@ -10,8 +10,11 @@ import (
 func main() {
 	csvFile := flag.String("csv", "", ".csv file for creating the quiz")
 	flag.Parse()
+	generateQuiz(csvFile)
+}
 
-	file, err := os.Open(*csvFile)
+func generateQuiz(filename *string) {
+	file, err := os.Open(*filename)
 	if err != nil {
 		exit("No such file found")
 	}
